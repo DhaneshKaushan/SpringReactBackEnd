@@ -1,4 +1,18 @@
 package com.dhanesh.studentsystem.service;
 
-public class StudentServiceImpl {
+import com.dhanesh.studentsystem.model.Student;
+import com.dhanesh.studentsystem.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class StudentServiceImpl implements StudentService {
+
+    @Autowired
+    private StudentRepository studentRepository;
+
+    @Override
+    public Student saveStudent(Student student) {
+        return studentRepository.save(student);
+    }
 }
